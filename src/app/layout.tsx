@@ -1,15 +1,51 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/partials/navbar";
+import Footer from "@/components/partials/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
+
+const primaryFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/NeutralFace/NeutralFace.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/NeutralFace/NeutralFace-Bold.woff",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  display: "swap",
+  variable: "--font-primaryfont",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const secondaryFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Zodiak/Zodiak-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Zodiak/Zodiak-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-secondaryfont",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +61,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${primaryFont.variable} ${secondaryFont.variable} antialiased bg-white`}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
