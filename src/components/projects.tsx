@@ -94,28 +94,55 @@ const Projects = () => {
   };
 
   return (
-    <section className="flex flex-col justify-center min-h-screen px-6 pb-8 md:pb-0">
+    <section
+      id="project"
+      className="flex flex-col justify-center min-h-screen px-6 pb-8 md:pb-0"
+    >
       <div id="project-list" className="flex flex-col  gap-12">
-        {projectData.map((project, index) => (
-          <div
-            key={project.id}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-            className="flex justify-between border-b-2 border-black cursor-pointer"
-          >
-            <div className="font-primary text-black">
-              <h5 className="text-4xl">{project.title}</h5>
-              <p>{project.description}</p>
+        {projectData.map((project, index) =>
+          project.url ? (
+            <a
+              key={project.id}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              className="flex justify-between border-b-2 border-black cursor-pointer no-underline"
+            >
+              <div className="font-primary text-black">
+                <h5 className="text-4xl">{project.title}</h5>
+                <p>{project.description}</p>
+              </div>
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={350}
+                height={350}
+                className="object-cover h-24 w-1/10"
+              />
+            </a>
+          ) : (
+            <div
+              key={project.id}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              className="flex justify-between border-b-2 border-black cursor-pointer"
+            >
+              <div className="font-primary text-black">
+                <h5 className="text-4xl">{project.title}</h5>
+                <p>{project.description}</p>
+              </div>
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={350}
+                height={350}
+                className="object-cover h-24 w-1/10"
+              />
             </div>
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={350}
-              height={350}
-              className="object-cover h-24 w-1/10"
-            />
-          </div>
-        ))}
+          )
+        )}
       </div>
 
       <div className="flex justify-end mt-12">
@@ -141,8 +168,8 @@ const Projects = () => {
           <Image
             src={projectData[hoveredProject].image}
             alt={projectData[hoveredProject].title}
-            width={300}
-            height={300}
+            width={600}
+            height={600}
             className="object-cover transition-opacity duration-300"
             priority
           />

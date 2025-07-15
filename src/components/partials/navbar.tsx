@@ -26,6 +26,21 @@ const Navbar = () => {
     });
   };
 
+  // Handler untuk smooth scroll
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md">
       <div className="container mx-auto px-4 py-6 flex justify-center">
@@ -37,6 +52,7 @@ const Navbar = () => {
                 className="relative block h-[32px] px-1 overflow-hidden cursor-pointer"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                onClick={(e) => handleNavClick(e, link.href)}
               >
                 {/* Teks pertama yang terlihat */}
                 <span className="slide-text flex items-center text-gray-500 justify-center h-full">

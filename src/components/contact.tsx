@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const contact = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,7 +48,10 @@ const contact = () => {
   };
 
   return (
-    <section className="flex flex-col justify-center h-screen bg-black gap-32 px-12">
+    <section
+      id="contact"
+      className="flex flex-col justify-center h-screen bg-black gap-32 px-12"
+    >
       <h1 className="text-white text-5xl md:text-8xl xl:text-9xl font-primary">
         Let&apos;s Talk
       </h1>
@@ -132,4 +135,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

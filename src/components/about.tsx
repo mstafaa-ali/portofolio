@@ -66,7 +66,10 @@ const About = () => {
   }, []);
 
   return (
-    <section className="flex items-center justify-center h-screen px-6 gap-12">
+    <section
+      id="about"
+      className="flex items-center justify-center h-screen px-6 gap-12"
+    >
       <div ref={containerRef} className="">
         <p
           ref={textRef}

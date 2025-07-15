@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="h-screen md:px-6 pb-6">
+    <section id="hero" className="h-screen md:px-6 pb-6">
       <div className="flex items-end w-full h-full justify-end gap-12">
         <div className="flex w-0 md:w-2/4 invisible md:visible">
           <Image
