@@ -43,7 +43,7 @@ const Contact = () => {
         setStatus(`error: ${errorData.message}`);
       }
     } catch (error) {
-      setStatus("error: Network error");
+      setStatus(`error: ${error}`);
     }
   };
 
