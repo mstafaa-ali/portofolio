@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md">
       <div className="container mx-auto px-4 py-6 flex justify-center">
-        <ul className="flex text-3xl font-bold  font-primary">
+        <ul className="flex text-md md:text-3xl font-bold  font-primary">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link

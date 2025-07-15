@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
+import projectData from "@/data/projectData";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -91,46 +92,9 @@ const Projects = () => {
       setTimeout(() => setHoveredProject(null), 300);
     }, 200);
   };
-  const projectData = [
-    {
-      id: 1,
-      title: "Project 1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      image: "/images/download.jpeg",
-    },
-    {
-      id: 2,
-      title: "Project 2",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      image: "/images/download.jpeg",
-    },
-    {
-      id: 3,
-      title: "Project 3",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      image: "/images/me.JPG",
-    },
-    {
-      id: 4,
-      title: "Project 4",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      image: "/images/download.jpeg",
-    },
-    {
-      id: 5,
-      title: "Project 5",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      image: "/images/download.jpeg",
-    },
-  ];
 
   return (
-    <section className="flex flex-col justify-center h-screen px-6">
+    <section className="flex flex-col justify-center min-h-screen px-6 pb-8 md:pb-0">
       <div id="project-list" className="flex flex-col  gap-12">
         {projectData.map((project, index) => (
           <div

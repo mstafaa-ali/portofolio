@@ -70,12 +70,11 @@ const About = () => {
       <div ref={containerRef} className="">
         <p
           ref={textRef}
-          className="text-black text-6xl text-center items-center justify-center font-primary font-bold leading-tight"
+          className="text-black text-lg md:text-3xl xl:text-6xl text-center items-center justify-center font-primary font-bold leading-tight"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id rem odio
-          quia enim non autem tenetur. Necessitatibus ratione exercitationem
-          vitae blanditiis. Tempore, inventore nemo! Corporis quas adipisci
-          aliquid incidunt? Libero?
+          I’m a Fullstack Web Developer with a strong interest in AI/ML
+          Engineering. I enjoy creating smart, scalable solutions that combine
+          clean code, great design, and intelligent systems.
         </p>
       </div>
     </section>
