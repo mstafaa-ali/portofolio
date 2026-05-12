@@ -48,15 +48,15 @@ const Hero = () => {
       <section
         ref={containerRef}
         id="hero"
-        className="h-screen flex items-end md:p-12 bg-[#F2EDE6]"
+        className="min-h-screen flex items-end p-4 sm:p-6 md:p-12 bg-[#F2EDE6]"
       >
-        <div className="flex items-end justify-start w-full h-1/2 justify-end gap-12">
-          <div className="w-full h-full flex flex-col justify-between">
+        <div className="flex items-end w-full h-auto md:h-1/2 pb-6 md:pb-0">
+          <div className="w-full h-full flex flex-col justify-between gap-8 md:gap-0">
             <div>
               <div className="overflow-hidden">
                 <h3
                   ref={h3TopRef}
-                  className="font-primary text-[#6B6560] uppercase text-lg flex items-end"
+                  className="font-primary text-[#6B6560] uppercase text-sm sm:text-base md:text-lg flex items-end"
                 >
                   Web developer and AI/ML Engineer
                 </h3>
@@ -64,33 +64,33 @@ const Hero = () => {
               <div className="overflow-hidden">
                 <h1
                   ref={h1Ref}
-                  className="font-clash mt-6 text-[#1A1A1A] uppercase text-5xl xl:text-[12rem] md:text-7xl font-semibold"
+                  className="font-clash mt-3 sm:mt-4 md:mt-6 text-[#1A1A1A] uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[12rem] font-semibold leading-tight"
                 >
                   mustafa ali.
                 </h1>
               </div>
             </div>
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between gap-6 sm:gap-4">
               <div className="overflow-hidden">
                 <h3
                   ref={h3BottomRef}
-                  className="w-1/3 text-[#6B6560] uppercase font-light text-sm flex items-end"
+                  className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 text-[#6B6560] uppercase font-light text-xs sm:text-sm flex items-end"
                 >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industrys
                   standard dummy text ever since the 1500s
                 </h3>
               </div>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-row sm:flex-col gap-3">
                 <Button
                   variant="outline"
-                  className="rounded-full font-extralight px-6 py-5 border-[#E0DBD5] text-[#1A1A1A] hover:bg-[#A39080] hover:text-white hover:border-[#A39080] transition-colors"
+                  className="rounded-full font-extralight px-4 py-3 sm:px-6 sm:py-5 text-xs sm:text-sm border-[#E0DBD5] text-[#1A1A1A] hover:bg-[#A39080] hover:text-white hover:border-[#A39080] transition-colors"
                 >
                   Available for Work
                 </Button>
                 <Button
                   variant="outline"
-                  className="rounded-full font-extralight px-6 py-5 border-[#E0DBD5] text-[#1A1A1A] hover:bg-[#A39080] hover:text-white hover:border-[#A39080] transition-colors"
+                  className="rounded-full font-extralight px-4 py-3 sm:px-6 sm:py-5 text-xs sm:text-sm border-[#E0DBD5] text-[#1A1A1A] hover:bg-[#A39080] hover:text-white hover:border-[#A39080] transition-colors"
                 >
                   Malang, Indonesia
                 </Button>

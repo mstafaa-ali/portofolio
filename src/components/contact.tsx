@@ -11,7 +11,7 @@ const Contact = () => {
   const [status, setStatus] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -50,18 +50,24 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center h-screen bg-black gap-32 px-12"
+      className="flex flex-col justify-center min-h-screen bg-[#1A1A1A] gap-16 md:gap-32 px-4 sm:px-6 md:px-12 py-16 md:py-0"
     >
-      <h1 className="text-white text-5xl md:text-8xl xl:text-9xl font-primary">
-        Let&apos;s Talk
+      <h1 className="text-[#F2EDE6] text-4xl sm:text-5xl md:text-8xl xl:text-9xl font-primary uppercase">
+        Let&apos;s{" "}
+        <span className="group relative inline-block cursor-default">
+          <span className="transition-colors duration-300 group-hover:text-[#E8734A]">
+            Talk
+          </span>
+          <span className="absolute bottom-0 left-0 h-[2px] md:h-[3px] w-0 bg-[#E8734A] transition-all duration-500 ease-out group-hover:w-full" />
+        </span>
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-10">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-10 text-white font-primary w-full md:w-1/2"
+          className="flex flex-col gap-8 md:gap-10 text-[#F2EDE6] font-primary w-full md:w-1/2"
         >
-          <div className="flex flex-col gap-2 border-b-1 border-white">
+          <div className="flex flex-col gap-2 border-b border-[#E0DBD5]/30">
             <input
               type="text"
               name="name"
@@ -69,11 +75,11 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Name"
               required
-              className="bg-black p-3 focus:outline-none"
+              className="bg-transparent p-3 text-[#F2EDE6] placeholder:text-[#6B6560] font-light focus:outline-none"
             />
           </div>
 
-          <div className="flex flex-col gap-2  border-b-1 border-white">
+          <div className="flex flex-col gap-2 border-b border-[#E0DBD5]/30">
             <input
               type="email"
               name="email"
@@ -81,53 +87,60 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="example@gmail.com"
               required
-              className="bg-black p-3 focus:outline-none"
+              className="bg-transparent p-3 text-[#F2EDE6] placeholder:text-[#6B6560] font-light focus:outline-none"
             />
           </div>
-          <div className="flex flex-col gap-2 border-b-1 border-white">
+
+          <div className="flex flex-col gap-2 border-b border-[#E0DBD5]/30">
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="message"
+              placeholder="Message"
               required
-              className="min-h-[100px] bg-black p-3 focus:outline-none"
+              className="min-h-[100px] bg-transparent p-3 text-[#F2EDE6] placeholder:text-[#6B6560] font-light focus:outline-none resize-none"
             />
           </div>
 
-          <button type="submit" className="w-fit px-4 py-2 border border-solid">
-            {status === "sending" ? "Sending..." : "Send"}
+          <button
+            type="submit"
+            className="w-fit rounded-full font-extralight px-6 py-3 border border-[#E0DBD5]/30 text-[#F2EDE6] hover:bg-[#A39080] hover:text-[#F2EDE6] hover:border-[#A39080] transition-colors"
+          >
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
+
           {status === "success" && (
-            <p className="text-green-500">Message sent successfully!</p>
+            <p className="text-green-400 font-light text-sm">
+              Message sent successfully!
+            </p>
           )}
           {status.startsWith("error") && (
-            <p className="text-red-500">
+            <p className="text-red-400 font-light text-sm">
               Failed to send message. {status.replace("error: ", "")}
             </p>
           )}
         </form>
 
-        <div className="flex flex-col gap-6">
-          <div className="font-primary ">
-            <label htmlFor="email" className="text-gray-500">
+        <div className="flex flex-col gap-8 text-[#F2EDE6]">
+          <div className="font-primary">
+            <p className="text-[#6B6560] uppercase text-xs tracking-widest mb-1">
               Email
-            </label>
-            <p>mustafali.0522@gmail.com</p>
+            </p>
+            <p className="font-light">mustafali.0522@gmail.com</p>
           </div>
 
-          <div className="font-primary ">
-            <label htmlFor="location" className="text-gray-500">
+          <div className="font-primary">
+            <p className="text-[#6B6560] uppercase text-xs tracking-widest mb-1">
               Location
-            </label>
-            <p>Malang, Indonesia</p>
+            </p>
+            <p className="font-light">Malang, Indonesia</p>
           </div>
 
-          <div className="font-primary ">
-            <label htmlFor="email" className="text-gray-500">
+          <div className="font-primary">
+            <p className="text-[#6B6560] uppercase text-xs tracking-widest mb-1">
               Social
-            </label>
-            <p>mustafali.0522@gmail.com</p>
+            </p>
+            <p className="font-light">mustafali.0522@gmail.com</p>
           </div>
         </div>
       </div>
