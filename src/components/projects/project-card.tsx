@@ -7,10 +7,9 @@ import { ExtendedProject } from "@/data/projectData";
 
 interface ProjectCardProps {
   project: ExtendedProject;
-  index: number;
 }
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
   const [imageError, setImageError] = useState(false);
 
   const altText = `${project.title} - ${project.description}`.slice(0, 125);
