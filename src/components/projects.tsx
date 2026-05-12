@@ -98,6 +98,10 @@ const Projects = () => {
       id="project"
       className="flex flex-col justify-center min-h-screen px-6 pb-8 md:pb-0"
     >
+      <div>
+        <h3 className="text-sm font-light">Selected Projects</h3>
+        <h1 className="text-8xl font-bold">Works</h1>
+      </div>
       <div id="project-list" className="flex flex-col  gap-12">
         {projectData.map((project, index) =>
           project.url ? (
@@ -141,7 +145,7 @@ const Projects = () => {
                 className="object-cover h-24 w-1/10"
               />
             </div>
-          )
+          ),
         )}
       </div>
 

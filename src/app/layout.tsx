@@ -3,6 +3,45 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/partials/navbar";
 import Footer from "@/components/partials/footer";
+import {
+  Inter,
+  Playfair_Display,
+  Cormorant_Garamond,
+  Instrument_Serif,
+  Syne,
+} from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -29,6 +68,28 @@ const primaryFont = localFont({
   ],
   display: "swap",
   variable: "--font-primaryfont",
+});
+
+const clashDisplay = localFont({
+  src: [
+    {
+      path: "../assets/fonts/ClashDisplay/ClashDisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/ClashDisplay/ClashDisplay-Semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/ClashDisplay/ClashDisplay-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-clash",
 });
 
 const secondaryFont = localFont({
@@ -59,9 +120,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", inter.variable)}>
       <body
-        className={`${primaryFont.variable} ${secondaryFont.variable} antialiased bg-white`}
+        className={`${primaryFont.variable} ${secondaryFont.variable} ${playfair.variable} ${cormorant.variable} ${instrumentSerif.variable} ${syne.variable} ${clashDisplay.variable} antialiased bg-white`}
       >
         <Navbar />
         {children}

@@ -29,7 +29,7 @@ const Navbar = () => {
   // Handler untuk smooth scroll
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
