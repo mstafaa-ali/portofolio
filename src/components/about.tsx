@@ -114,7 +114,12 @@ const About = () => {
           My Story
         </p>
         <h2 className="font-clash text-[#1A1A1A] uppercase text-5xl md:text-8xl font-semibold">
-          About
+          <span className="group relative inline-block cursor-default">
+            <span className="transition-colors duration-300 group-hover:text-[#A39080]">
+              About
+            </span>
+            <span className="absolute bottom-1 left-0 h-[3px] md:h-[5px] w-0 bg-[#A39080] transition-all duration-500 ease-out group-hover:w-full" />
+          </span>
         </h2>
       </div>
 

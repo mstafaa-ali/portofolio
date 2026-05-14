@@ -66,7 +66,13 @@ const Hero = () => {
                   ref={h1Ref}
                   className="font-clash mt-3 sm:mt-4 md:mt-6 text-[#1A1A1A] uppercase text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[12rem] font-semibold leading-tight"
                 >
-                  mustafa ali.
+                  mustafa{" "}
+                  <span className="group relative inline-block cursor-default">
+                    <span className="transition-colors duration-300 group-hover:text-[#A39080]">
+                      ali.
+                    </span>
+                    <span className="absolute bottom-2 md:bottom-4 left-0 h-[3px] md:h-[6px] w-0 bg-[#A39080] transition-all duration-500 ease-out group-hover:w-full" />
+                  </span>
                 </h1>
               </div>
             </div>

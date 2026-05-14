@@ -14,19 +14,21 @@ const Projects = () => {
 
   useGSAP(
     () => {
-      const cards = gsap.utils.toArray<HTMLElement>("#project-list > *");
+      const cards = gsap.utils.toArray<HTMLElement>(
+        ".project-card-wrapper > *",
+      );
 
-      gsap.set(cards, { opacity: 0, y: 50 });
+      gsap.set(cards, { y: 120, opacity: 0 });
 
       gsap.to(cards, {
-        opacity: 1,
         y: 0,
-        duration: 0.6,
+        opacity: 1,
+        duration: 1,
         stagger: 0.15,
-        ease: "power2.out",
+        ease: "power3.out",
         scrollTrigger: {
           trigger: "#project-list",
-          start: "top 80%",
+          start: "top 85%",
           once: true,
         },
       });
@@ -45,13 +47,23 @@ const Projects = () => {
           Selected Projects
         </h3>
         <h1 className="text-8xl font-primary font-bold text-[#1A1A1A] uppercase">
-          Works
+          <span className="group relative inline-block cursor-default">
+            <span className="transition-colors duration-300 group-hover:text-[#A39080]">
+              Works
+            </span>
+            <span className="absolute -bottom-2 left-0 h-[3px] md:h-[5px] w-0 bg-[#A39080] transition-all duration-500 ease-out group-hover:w-full" />
+          </span>
         </h1>
       </div>
 
       <div id="project-list" className="flex flex-col gap-8 mt-12">
         {projectData.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <div
+            key={project.id}
+            className="project-card-wrapper overflow-hidden"
+          >
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
 
