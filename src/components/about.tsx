@@ -10,25 +10,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    role: "Frontend Developer",
-    company: "Studio Nusantara",
-    period: "2024 — Present",
+    role: "Intern Fullstack Web Developer",
+    company: "PT. Aksamedia Mulia Digital",
+    period: "2025 — 2026",
     description:
-      "Building modern web applications with React and Next.js for various clients across Southeast Asia.",
+      "Building modern web applications with Laravel and React for various clients across Southeast Asia.",
   },
   {
-    role: "AI/ML Engineer Intern",
-    company: "TechVision Labs",
-    period: "2023 — 2024",
+    role: "Front-End Developer",
+    company: "POROS Organization of Open Source",
+    period: "2024 — 2025",
     description:
-      "Developed machine learning models for computer vision tasks and deployed them as scalable APIs.",
-  },
-  {
-    role: "Freelance Web Developer",
-    company: "Self-employed",
-    period: "2022 — 2023",
-    description:
-      "Designed and developed responsive websites and web applications for small businesses and startups.",
+      "Designed and developed responsive websites and web applications for Organization Profile",
   },
 ];
 
@@ -110,7 +103,7 @@ const About = () => {
     >
       {/* Heading */}
       <div ref={headingRef} className="mb-12">
-        <p className="text-xs font-primary uppercase tracking-widest text-[#A39080] mb-4">
+        <p className="text-xs font-primary uppercase tracking-widest text-[#1A1A1A] mb-4">
           My Story
         </p>
         <h2 className="font-clash text-[#1A1A1A] uppercase text-5xl md:text-8xl font-semibold">
