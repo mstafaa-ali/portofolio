@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
+import { scrollToTarget } from "@/components/smooth-scroll";
 
 const navLinks = [
   { href: "#project", label: "Work" },
@@ -122,11 +123,7 @@ const Navbar = () => {
   ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
-      const targetId = href.replace("#", "");
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
+      scrollToTarget(href);
     }
   };
 

@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/partials/navbar";
 import Footer from "@/components/partials/footer";
+import SplashScreen from "@/components/splash-screen";
+import SmoothScroll from "@/components/smooth-scroll";
 import {
   Inter,
   Playfair_Display,
@@ -42,16 +44,6 @@ const syne = Syne({
   variable: "--font-syne",
   display: "swap",
 });
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 const primaryFont = localFont({
   src: [
@@ -127,9 +119,12 @@ export default function RootLayout({
       <body
         className={`${primaryFont.variable} ${secondaryFont.variable} ${playfair.variable} ${cormorant.variable} ${instrumentSerif.variable} ${syne.variable} ${clashDisplay.variable} antialiased bg-white`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <SplashScreen />
+        <SmoothScroll>
+          <Navbar />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

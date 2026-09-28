@@ -21,78 +21,89 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   };
 
   const leftPanel = (
-    <div className="flex flex-col justify-between gap-6 p-6 md:p-8 lg:p-10 w-full md:w-[70%] lg:w-[50%]">
-      {/* Project Number */}
-      <span className="font-primary text-sm text-[#A39080] tracking-widest uppercase">
-        {project.number}
-      </span>
+    <div className="flex flex-col justify-between gap-6 p-6 md:p-8 lg:p-10 w-full md:w-[60%] lg:w-[50%]">
+      <div>
+        {/* Project Number & Year */}
+        <div className="flex justify-between items-center mb-4">
+          <span className="font-primary text-xs font-semibold text-[#A39080] tracking-widest uppercase">
+            {project.number}
+          </span>
+          <div className="flex items-center gap-2 font-primary text-xs text-[#6B6560] uppercase tracking-wider">
+            <span>{project.company}</span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#A39080]" />
+            <span>{project.year}</span>
+          </div>
+        </div>
 
-      {/* Company / Year Row */}
-      <div className="flex items-center gap-2 font-primary text-sm text-[#6B6560] font-light">
-        <span>{project.company}</span>
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E0DBD5]" />
-        <span>{project.year}</span>
+        {/* Headline */}
+        <h3 className="font-clash text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug text-[#1A1A1A] uppercase transition-colors duration-300 group-hover:text-[#A39080]">
+          {project.headline}
+        </h3>
+
+        {/* Description snippet if available */}
+        {project.description && (
+          <p className="mt-3 text-xs sm:text-sm font-primary text-[#6B6560] line-clamp-2 leading-relaxed">
+            {project.description}
+          </p>
+        )}
       </div>
 
-      {/* Headline */}
-      <h3 className="font-primary text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-[#1A1A1A] uppercase">
-        {project.headline}
-      </h3>
-
-      {/* Tag Badges - max 5, hidden when empty */}
-      {project.tags.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {project.tags.slice(0, 5).map((tag, i) => (
-            <span
-              key={i}
-              className="uppercase text-xs font-primary font-light px-3 py-1 border border-[#E0DBD5] rounded-full text-[#6B6560] tracking-widest"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {/* Stat Metrics - max 4, hidden when empty */}
-      {project.stats.length > 0 && (
-        <div className="flex flex-wrap gap-6">
-          {project.stats.slice(0, 4).map((stat, i) => (
-            <div key={i} className="flex flex-col">
-              <span className="font-primary text-2xl font-semibold text-[#1A1A1A]">
-                {stat.value}
+      <div className="space-y-6 pt-4 border-t border-[#E0DBD5]">
+        {/* Tag Badges */}
+        {project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {project.tags.slice(0, 5).map((tag, i) => (
+              <span
+                key={i}
+                className="uppercase text-[11px] font-primary px-3 py-1 border border-[#E0DBD5] rounded-full text-[#6B6560] tracking-wider transition-colors duration-300 group-hover:border-[#A39080]/50"
+              >
+                {tag}
               </span>
-              <span className="font-primary text-xs font-light text-[#6B6560]">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+
+        {/* Stat Metrics */}
+        {project.stats.length > 0 && (
+          <div className="flex flex-wrap gap-6 pt-2">
+            {project.stats.slice(0, 4).map((stat, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="font-clash text-xl sm:text-2xl font-semibold text-[#1A1A1A]">
+                  {stat.value}
+                </span>
+                <span className="font-primary text-[11px] uppercase tracking-wider text-[#6B6560]">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 
   const rightPanel = (
     <div
-      className="relative w-full md:w-[30%] lg:w-[50%] min-h-[250px] md:min-h-0"
-      style={{ backgroundColor: project.bgColor || "transparent" }}
+      className="relative w-full md:w-[40%] lg:w-[50%] min-h-[260px] md:min-h-0 overflow-hidden bg-[#EAE4DC]"
+      style={{ backgroundColor: project.bgColor || undefined }}
     >
       {!imageError ? (
         <Image
           src={project.image}
           alt={altText}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           onError={() => setImageError(true)}
         />
       ) : (
-        <div className="flex items-center justify-center w-full h-full bg-[#F2EDE6]">
+        <div className="flex items-center justify-center w-full h-full bg-[#EAE4DC]">
           <ImageOff className="w-10 h-10 text-[#A39080]" />
         </div>
       )}
 
-      {/* Navigation Arrow */}
-      <div className="absolute bottom-3 right-3 z-10 rounded-full p-2 border border-[#E0DBD5] bg-[#F2EDE6] transition-all duration-300 group-hover:bg-[#A39080] group-hover:border-[#A39080]">
-        <ArrowUpRight className="w-4 h-4 text-[#1A1A1A] transition-colors duration-300 group-hover:text-[#F2EDE6]" />
+      {/* Navigation Arrow Pill */}
+      <div className="absolute bottom-4 right-4 z-10 flex items-center justify-center w-10 h-10 rounded-full border border-[#E0DBD5] bg-[#F2EDE6]/90 backdrop-blur-sm transition-all duration-300 group-hover:bg-[#1A1A1A] group-hover:border-[#1A1A1A] group-hover:scale-105 shadow-sm">
+        <ArrowUpRight className="w-4 h-4 text-[#1A1A1A] transition-all duration-300 group-hover:text-[#F2EDE6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </div>
     </div>
   );
@@ -105,7 +116,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   );
 
   const sharedClasses =
-    "group flex flex-col md:flex-row w-full rounded-xl overflow-hidden bg-transparent border border-[#E0DBD5] transition-all duration-300 hover:border-[#A39080] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A39080]";
+    "group flex flex-col md:flex-row w-full rounded-2xl overflow-hidden bg-[#F2EDE6] border border-[#E0DBD5] transition-all duration-500 hover:border-[#A39080] hover:shadow-2xl hover:shadow-[#1A1A1A]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A39080]";
 
   if (project.url) {
     return (
